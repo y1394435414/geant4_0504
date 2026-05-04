@@ -1,0 +1,26 @@
+/run/initialize
+/vis/open OGL
+
+# Draw all volumes
+/vis/drawVolume
+
+# Hide the world volume
+/vis/geometry/set/visibility logicWorld 0 false
+
+# Draw stored particle trajectories. Optical photons are disabled in
+# trajectory.cc for SCARRAY so the view stays readable.
+/vis/scene/add/trajectories smooth
+/vis/modeling/trajectories/create/drawByCharge
+/vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true
+/vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 2
+
+# Set viewpoint from Z axis (top view to see array)
+/vis/viewer/set/viewpointVector 0 0 1
+
+# Reset and zoom in
+/vis/viewer/reset
+/vis/viewer/zoom 10
+
+# Add scale instead of huge axes
+/vis/scene/endOfEventAction accumulate
+/vis/viewer/set/autoRefresh true

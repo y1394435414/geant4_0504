@@ -1,0 +1,24 @@
+/run/initialize
+/vis/open OGL
+
+# Draw all volumes
+/vis/drawVolume
+
+# Hide the world volume
+/vis/geometry/set/visibility logicWorld 0 false
+
+# Set viewpoint from Z axis (top view) to see X arrangement
+/vis/viewer/set/viewpointVector 0 0 1
+
+# Reset and zoom
+/vis/viewer/reset
+/vis/viewer/zoom 8
+
+# Remove default axes first
+/vis/scene/remove/axes
+
+# Add new axes with origin at (0,0,0) and length 5 cm
+/vis/scene/add/axes 0 0 0 5 cm
+
+# Set auto refresh
+/vis/viewer/set/autoRefresh true
